@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-export default function GamePage({ gamesList }) {
+const GamePage = ({ gamesList }) => {
 
     let { gameId } = useParams();
     gameId = parseInt(gameId);
@@ -16,6 +16,11 @@ export default function GamePage({ gamesList }) {
             <h3>{ game.name }</h3>
             <p>{ game.category }</p>
             <p>{ game.rating }</p>
+            <p>Players: { game.players }</p>
+            <p>Duration: { game.duration }</p>
+            <p>Description: { game.description }</p>
         </div>
     );
 }
+
+export default GamePage;

@@ -1,15 +1,14 @@
 import { Nav, Container, Navbar } from 'react-bootstrap';
 import { Routes, Route, Link } from 'react-router-dom';
-import { useState } from 'react';
 import HomePage from './pages/HomePage';
 import RandomPage from './pages/RandomPage'; 
-import GamePage from './pages/GamePage';
+import GameDetailPage from './pages/GameDetailPage';
 import { BOARDGAMES } from './app/shared/BOARDGAMES';
 
 
 	function App() {
 		
-		const [gamesList, setGamesList] = useState( BOARDGAMES );
+		const gamesList = BOARDGAMES;
 
 		return (
 			<div>
@@ -24,9 +23,9 @@ import { BOARDGAMES } from './app/shared/BOARDGAMES';
 				</Navbar>
 				<Container className='mt-4'>
 					<Routes>
-						<Route path='/' element={ <HomePage gamesList={gamesList}/> } />
-						<Route path='/random' element={ <RandomPage gamesList={gamesList}/> } />
-						<Route path="/games/:gameId" element={ <GamePage gamesList={gamesList} /> } />
+						<Route path='/' element={ <HomePage /> } />
+						<Route path='/random' element={ <RandomPage /> } />
+						<Route path="/games/:gameId" element={ <GameDetailPage /> } />
 					</Routes>
 				</Container>			
 			</div>
